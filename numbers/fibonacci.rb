@@ -17,3 +17,12 @@ puts fibonacci( 10 )
 
 f = ->(x){ x < 2 ? x : f[x-1] + f[x-2] }
 puts f[6] 
+
+
+# **** sexy way using hash :)
+# http://stackoverflow.com/a/6420253/66493
+
+fibonacci = Hash.new{ |h,k| h[k] = k < 2 ? k : h[k-1] + h[k-2] }
+
+fibonacci[6]  # => 8 
+fibonacci[50] # => 12586269025
